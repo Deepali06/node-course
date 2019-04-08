@@ -6,7 +6,7 @@ fs.appendFileSync('notes.txt',' I work at Wipro Digital as Senior Software Devel
 
 /* 2nd Program */
 
-require('./utils.js');
-const name = 'Deepali';
-
-console.log('name');
+const add = require('./utils.js');
+//const name = 'Deepali';
+const sum =  add(4,-2);
+console.log(sum);
