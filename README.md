@@ -1,1 +1,2 @@
 # node-course
+npm i
