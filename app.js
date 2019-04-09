@@ -6,7 +6,9 @@ const chalk = require('chalk');
 //fs.appendFileSync('notes.txt', 'My name is Deepali');
 //fs.appendFileSync('notes.txt',' I work at Wipro Digital as Senior Software Developer');
 console.log(validator.isURL('https://mead.io'));
-console.log(chalk.green.bold.inverse("Success!"))
+console.log(chalk.red.bold.inverse("Success!"))
+
+console.log(process.argv);
 /* 2nd Program */
 
 //const add = require('./utils.js');
