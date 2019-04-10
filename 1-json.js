@@ -14,5 +14,20 @@ fs.writeFileSync('1-json.json', bookjson);
 const parseData = JSON.parse(bookjson);
 console.log(parseData.author);*/
 
-const databuffer = fs.readFileSync('1-json.json');
-console.log(databuffer.toString());
+/*const databuffer = fs.readFileSync('1-json.json');
+const dataJSON = databuffer.toString();
+const data = JSON.parse(dataJSON);
+console.log(data.title);*/
+
+const bufferdata = fs.readFileSync('1-json.json');
+const dataJSON = bufferdata.toString();
+const user = JSON.parse(dataJSON);
+//console.log(user);
+
+user.name = 'Deepali';
+user.age = '27';
+
+const userJSON = JSON.stringify(user);
+//console.log(userJSON);
+fs.writeFileSync('1-json.json', userJSON);
+
