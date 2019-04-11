@@ -22,10 +22,7 @@ const addnote = function(title,body){
    }
   
 }
-const savenotes = function(notes){
-  const dataJson = JSON.stringify(notes);
-  fs.writeFileSync('notes.json', dataJson);
-}
+
 
 const removenote = function(title){
     const readnotes = loadnotes();
@@ -38,9 +35,12 @@ const removenote = function(title){
         console.log('Note is deleted');
     }
 }
-console.log(readnotes);
+savenotes(readnotes);
  }
-
+ const savenotes = function(notes){
+    const dataJson = JSON.stringify(notes);
+    fs.writeFileSync('notes.json', dataJson);
+  }
 const loadnotes = function(){
     try{
         const dataBuffer = fs.readFileSync('notes.json');
