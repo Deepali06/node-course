@@ -26,6 +26,21 @@ const savenotes = function(notes){
   const dataJson = JSON.stringify(notes);
   fs.writeFileSync('notes.json', dataJson);
 }
+
+const removenote = function(title){
+    const readnotes = loadnotes();
+    console.log(readnotes);
+    for(let i=0; i< readnotes.length; i++)
+    {
+    if (title == readnotes[i].title ) {
+        console.log(readnotes[i].title);
+        readnotes.splice(i);
+        console.log('Note is deleted');
+    }
+}
+console.log(readnotes);
+ }
+
 const loadnotes = function(){
     try{
         const dataBuffer = fs.readFileSync('notes.json');
@@ -37,7 +52,10 @@ const loadnotes = function(){
     }
     
 }
+
+
 module.exports = {
     getnotes: getnotes,
-    addnote: addnote
+    addnote: addnote,
+    removenote: removenote
 };
