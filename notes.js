@@ -1,6 +1,7 @@
 //console.log('notes.js');
 const fs = require('fs');
-
+const chalk = require('chalk');
+let count = 0 ;
 const getnotes = function(){
     return 'Yournotes..';
 }
@@ -26,16 +27,17 @@ const addnote = function(title,body){
 
 const removenote = function(title){
     const readnotes = loadnotes();
-    console.log(readnotes);
-    for(let i=0; i< readnotes.length; i++)
-    {
-    if (title == readnotes[i].title ) {
-        console.log(readnotes[i].title);
-        readnotes.splice(i);
-        console.log('Note is deleted');
-    }
-}
-savenotes(readnotes);
+  //  console.log(readnotes);
+   const notesToKeep = readnotes.filter(function (readnote){
+       return readnote.title !== title;
+   })
+   if(readnotes.length > notesToKeep.length){
+       console.log(chalk.green("Note deleted"));
+       savenotes(notesToKeep);
+   }else {
+       console.log(chalk.red("no note found"));
+   }
+
  }
  const savenotes = function(notes){
     const dataJson = JSON.stringify(notes);
